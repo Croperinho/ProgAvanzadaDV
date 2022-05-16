@@ -23,8 +23,8 @@ public class Interfaz {
 		 producto.setNombre("Coca-Cola");
 		 producto.setCategoria("Bebida");
 		 producto.setPrecio(50);
-		 producto.setPeso(6);
 		 producto.setId_producto(1);
+		 producto.setCantidad(50);
 		 almacen.add(producto);
 	}
 	
@@ -46,8 +46,6 @@ public class Interfaz {
 		case "2": verProductos();
 			break;
 		case "3": Salir();
-			break;
-		case "4": contarProductos();
 			break;
 			
 		default: System.out.println("Se eligio una opcion incorrecta volver a intentar");
@@ -95,17 +93,6 @@ public class Interfaz {
 						System.out.println("Si deseas agregar nuevamente un producto, selecciona la opcion 1.");
 						imprimirMenu();
 					} else  {
-						System.out.println("Ingrese el peso en KG.");
-						producto.setPeso(entrada.nextFloat());
-						
-						float peso = producto.getPeso();
-						if(peso < 0.1 || peso > 100000) 
-						{
-								System.out.println("No se pudo agregar el producto, hubo un error con el peso.");
-								System.out.println("Si deseas agregar nuevamente un producto, selecciona la opcion 1.");
-								imprimirMenu();
-								
-							} else  {
 								System.out.println("Ingrese el ID de producto.");
 								producto.setId_producto(entrada.nextInt());
 								
@@ -116,17 +103,28 @@ public class Interfaz {
 										System.out.println("Si deseas agregar nuevamente un producto, selecciona la opcion 1.");
 										imprimirMenu();
 									} else  {
+										System.out.println("Ingrese la cantidad del producto.");
+										producto.setCantidad(entrada.nextInt());
+										
+										int cantidad = producto.getCantidad();
+										if(cantidad < 1 || cantidad > 99999999) 
+										{	
+												System.out.println("No se pudo agregar el producto, hubo un error con la cantidad de producto.");
+												System.out.println("Si deseas agregar nuevamente un producto, selecciona la opcion 1.");
+												imprimirMenu();
+											} else  {
 										almacen.add(producto);
 											System.out.println("Se agrego correctamente el producto");
 											imprimirMenu();
-											}
+													}
 					
-									}
-								}
+											}
+							}
 		
-					}
-	
 				}
+			}
+	
+				
 }
 	
 

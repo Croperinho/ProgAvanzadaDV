@@ -1,6 +1,5 @@
 package Negocio;
 
-import java.awt.Container;
 import java.util.LinkedList;
 
 import Datos.Producto;
@@ -39,25 +38,26 @@ public class Almacen {
 				return 3;
 			} 
 			else {
-				float peso = producto.getPeso();
-				if(peso < 0.1 || peso > 100000) 
-				{
-					return 4;
-				} else {
 				int id_producto = producto.getId_producto();
 					if(id_producto < 1 || id_producto > 99999999) 
 					{	
 						return 5;
 					} else  {
+						int cantidad = producto.getCantidad();
+						if(cantidad < 1 || cantidad > 99999999) 
+						{	
+							return 6;
+						} else  {
 						Container.add(producto);
+								}
+							return 7;
 							}
-					return 6;
-						}
 				  }
 		
 				}
 	
 			    }
+			
 	}
 
 	

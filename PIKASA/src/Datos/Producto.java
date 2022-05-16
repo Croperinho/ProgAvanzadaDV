@@ -7,13 +7,15 @@ public class Producto {
 	private int precio;
 	private float peso;
 	private String categoria;
+	private int cantidad;
 	
-	public Producto(int id_producto, String nombre, int precio, float peso, String categoria) {
+	public Producto(int id_producto, String nombre, int precio, float peso, String categoria,int cantidad) {
 		this.id_producto = id_producto;
 		this.nombre = nombre;
 		this.precio = precio;
 		this.peso = peso;
 		this.categoria = categoria;
+		this.cantidad = cantidad;
 	}
 	
 	public Producto() {
@@ -23,6 +25,14 @@ public class Producto {
 
 	public int getId_producto() {
 		return id_producto;
+	}
+
+	public int getCantidad() {
+		return cantidad;
+	}
+
+	public void setCantidad(int cantidad) {
+		this.cantidad = cantidad;
 	}
 
 	public void setId_producto(int id_producto) {
@@ -43,14 +53,6 @@ public class Producto {
 
 	public void setPrecio(int precio) {
 		this.precio = precio;
-	}
-
-	public float getPeso() {
-		return peso;
-	}
-
-	public void setPeso(float peso) {
-		this.peso = peso;
 	}
 
 	public String getCategoria() {
