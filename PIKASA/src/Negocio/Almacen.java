@@ -7,7 +7,10 @@ import IU.Interfaz;
 
 public class Almacen {
 	
+	
 	LinkedList<Producto> Container = new LinkedList<Producto>();
+	
+	LinkedList[] Containers = {Container};
 	
 	public static void main(String[] args) 
 	{

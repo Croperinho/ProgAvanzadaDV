@@ -33,8 +33,9 @@ public class Interfaz {
 		System.out.println("Por favor escoja una de las siguientes opciones");
 		System.out.println("Para acceder a la opcion escriba el numero que corresponda");
 		System.out.println("1.Ingresar producto");
-		System.out.println("2.Ver container");
-		System.out.println("3.Salir");
+		System.out.println("2.Ver productos");
+		System.out.println("3.Buscar productos");
+		System.out.println("4.Salir");
 		
 		String opcion = entrada.next();
 		
@@ -45,8 +46,10 @@ public class Interfaz {
 			break;
 		case "2": verProductos();
 			break;
-		case "3": Salir();
+		case "3": buscarProductos();
 			break;
+		case "4": Salir();
+		break;
 			
 		default: System.out.println("Se eligio una opcion incorrecta volver a intentar");
 		imprimirMenu();
@@ -127,7 +130,11 @@ public class Interfaz {
 				
 }
 	
-
+	
+	private void buscarProductos() 
+	{
+		imprimirMenu();
+	}
 	
 	private void verProductos() 
 	{
