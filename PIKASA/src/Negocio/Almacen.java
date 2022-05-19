@@ -7,10 +7,16 @@ import IU.Interfaz;
 
 public class Almacen {
 	
+	Producto[] Almacen = new Producto[500];
 	
-	LinkedList<Producto> Container = new LinkedList<Producto>();
+	LinkedList<Producto> Container1 = new LinkedList<Producto>();
+	LinkedList<Producto> Container2 = new LinkedList<Producto>();
+	LinkedList<Producto> Container3 = new LinkedList<Producto>();
+	LinkedList<Producto> Container4 = new LinkedList<Producto>();
+	LinkedList<Producto> Container5 = new LinkedList<Producto>();
+	LinkedList<Producto> Container6 = new LinkedList<Producto>();
 	
-	LinkedList[] Containers = {Container};
+	LinkedList[] Containers = {Container1, Container2, Container3, Container4, Container5, Container6};
 	
 	public static void main(String[] args) 
 	{
@@ -51,7 +57,7 @@ public class Almacen {
 						{	
 							return 6;
 						} else  {
-						Container.add(producto);
+						Container1.add(producto);
 								}
 							return 7;
 							}
@@ -65,12 +71,12 @@ public class Almacen {
 
 	
 	public int contarProductos() {
-		return Container.size();
+		return Container1.size();
 	}
 
 	@Override
 	public String toString() {
-		return "Lista productos:\n" + Container;
+		return "Lista productos:\n" + Container1;
 	}
 	
 	

@@ -1,5 +1,6 @@
 package IU;
 import java.awt.Container;
+import java.util.LinkedList;
 import java.util.Scanner;
 import Datos.Operario;
 import Datos.Producto;
@@ -131,8 +132,8 @@ public class Interfaz {
 }
 	
 	
-	private void buscarProductos() 
-	{
+	private void buscarProductos(Producto producto) 
+	{	
 		imprimirMenu();
 	}
 	
