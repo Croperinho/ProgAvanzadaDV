@@ -132,10 +132,31 @@ public class Interfaz {
 }
 	
 	
-	private void buscarProductos(Producto producto) 
-	{	
-		imprimirMenu();
+	/*
+	 * private void buscarProductos() { Producto producto = new Producto();
+	 * System.out.println("Ingrese el nombre del Producto");
+	 * 
+	 * String opcion = entrada.next();
+	 * 
+	 * switch (opcion) { case "producto":
+	 * 
+	 * System.out.println("Adios"); break;
+	 * 
+	 * case "container": System.out.println("Estamos en prog"); break;
+	 * 
+	 * default: System.out.println("Hola mundo"); break; }
+	 * 
+	 * imprimirMenu(); }
+	 */
+	private void buscarProductos() 
+	{
+		
+		System.out.println("Ingrese el nombre del producto.");	
+		String nombre = entrada.next();
+		almacen.buscadorProducto(nombre);
 	}
+	
+	
 	
 	private void verProductos() 
 	{

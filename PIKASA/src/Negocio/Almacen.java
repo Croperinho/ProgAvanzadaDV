@@ -68,7 +68,32 @@ public class Almacen {
 			    }
 			
 	}
+	
 
+	public Producto buscadorProducto (String nombreProducto) {
+		Producto product=new Producto();
+		int total=containers.size();
+		
+		while (total!= -1) 
+		{
+			if(!productosCreados.get(total).getNombre().equalsIgnoreCase(nombreProducto)) {
+				if(total == 0) {
+					System.out.print("Producto no encontrado.");
+				 
+				 }
+				total--;
+				
+			}else {
+				
+				product=productosCreados.get(total);
+				total=-1;
+			}
+			
+			}
+		System.out.print(product);
+		return product;
+		
+	}
 	
 	public int contarProductos() {
 		return Container1.size();
