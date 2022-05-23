@@ -1,6 +1,5 @@
 package IU;
 import java.awt.Container;
-import java.util.LinkedList;
 import java.util.Scanner;
 import Datos.Operario;
 import Datos.Producto;
@@ -26,7 +25,7 @@ public class Interfaz {
 		 producto.setPrecio(50);
 		 producto.setId_producto(1);
 		 producto.setCantidad(50);
-		 almacen.add(producto);
+		 almacen.addProductos(producto);
 	}
 	
 	private void imprimirMenu() 
@@ -47,7 +46,7 @@ public class Interfaz {
 			break;
 		case "2": verProductos();
 			break;
-		case "3": buscarProductos();
+		case "3": Buscador();
 			break;
 		case "4": Salir();
 		break;
@@ -117,7 +116,7 @@ public class Interfaz {
 												System.out.println("Si deseas agregar nuevamente un producto, selecciona la opcion 1.");
 												imprimirMenu();
 											} else  {
-										almacen.add(producto);
+										almacen.addProductos(producto);
 											System.out.println("Se agrego correctamente el producto");
 											imprimirMenu();
 													}
@@ -132,9 +131,12 @@ public class Interfaz {
 }
 	
 	
-	private void buscarProductos(Producto producto) 
-	{	
-		imprimirMenu();
+	private void Buscador() 
+	{
+		
+		System.out.println("Ingrese el nombre del producto.");	
+		String nombre = entrada.next();
+		almacen.buscadorProducto(nombre);
 	}
 	
 	private void verProductos() 
