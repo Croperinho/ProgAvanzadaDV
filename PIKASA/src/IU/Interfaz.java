@@ -1,6 +1,7 @@
 package IU;
-import java.awt.Container;
-import java.util.LinkedList;
+
+
+import Datos.Container;
 import java.util.Scanner;
 import Datos.Operario;
 import Datos.Producto;
@@ -15,6 +16,7 @@ public class Interfaz {
 	public void Login() 
 	{
 		sobreCarga();
+		sobreCargaContainer();
 		System.out.println("Bienvenido");
 		imprimirMenu();
 	}
@@ -26,7 +28,14 @@ public class Interfaz {
 		 producto.setPrecio(50);
 		 producto.setId_producto(1);
 		 producto.setCantidad(50);
-		 almacen.add(producto);
+		 almacen.addProductos(producto);
+	}
+	
+	public void sobreCargaContainer() {
+		 Container container = new Container();
+		 container.setNombre("Container1");
+		 container.setnroContainer(1);
+		 almacen.addContainer(container);
 	}
 	
 	private void imprimirMenu() 
@@ -35,8 +44,9 @@ public class Interfaz {
 		System.out.println("Para acceder a la opcion escriba el numero que corresponda");
 		System.out.println("1.Ingresar producto");
 		System.out.println("2.Ver productos");
-		System.out.println("3.Buscar productos");
-		System.out.println("4.Salir");
+		System.out.println("3.Buscar");
+		System.out.println("4.Borrar producto");
+		System.out.println("5.Salir");
 		
 		String opcion = entrada.next();
 		
@@ -47,9 +57,11 @@ public class Interfaz {
 			break;
 		case "2": verProductos();
 			break;
-		case "3": buscarProductos();
+		case "3": Buscador();
 			break;
-		case "4": Salir();
+		case "4": borrarProducto();
+			break;
+		case "5": Salir();
 		break;
 			
 		default: System.out.println("Se eligio una opcion incorrecta volver a intentar");
@@ -117,7 +129,7 @@ public class Interfaz {
 												System.out.println("Si deseas agregar nuevamente un producto, selecciona la opcion 1.");
 												imprimirMenu();
 											} else  {
-										almacen.add(producto);
+										almacen.addProductos(producto);
 											System.out.println("Se agrego correctamente el producto");
 											imprimirMenu();
 													}
@@ -132,29 +144,46 @@ public class Interfaz {
 }
 	
 	
-	/*
-	 * private void buscarProductos() { Producto producto = new Producto();
-	 * System.out.println("Ingrese el nombre del Producto");
-	 * 
-	 * String opcion = entrada.next();
-	 * 
-	 * switch (opcion) { case "producto":
-	 * 
-	 * System.out.println("Adios"); break;
-	 * 
-	 * case "container": System.out.println("Estamos en prog"); break;
-	 * 
-	 * default: System.out.println("Hola mundo"); break; }
-	 * 
-	 * imprimirMenu(); }
-	 */
-	private void buscarProductos() 
-	{
+	private void Buscador() 
+	{	
+		String nombre;
+		int numero;
+		System.out.println("Ingrese el numero de lo que desea buscar.");
+		System.out.println("1. Producto\n2. Container");
+		numero = entrada.nextInt();
+		switch (numero) {
+		case 1:
+			System.out.println("Ingrese el nombre del producto.");
+			nombre = entrada.next();
+			Producto producto = almacen.buscadorProductos(nombre);
+			
+			System.out.println(producto);
+			break;
+			
+		case 2:
+			System.out.println("Ingrese el nombre del container.");
+			nombre = entrada.next();
+			Container container = new Container();
+			container = almacen.buscadorContainer(nombre);
+			System.out.println(container);
+			break;
+
+		default:
+			break;
+			
+			
+		}
 		
-		System.out.println("Ingrese el nombre del producto.");	
-		String nombre = entrada.next();
-		almacen.buscadorProducto(nombre);
 	}
+	
+	private void borrarProducto() {
+		System.out.println("Ingrese el nombre del producto que desea eliminar.");
+		String nombre;
+		nombre = entrada.next();
+		almacen.borrarProducto(nombre);
+	}
+	
+	
 	
 	
 	
